@@ -743,9 +743,9 @@ button {
   height: 25rem;
   margin: 1rem 0;
   position: relative;
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
-  background-color: var(--purple-100); }
+  border: 4px solid var(--back-shadow); }
   .card::before {
     position: absolute;
     content: attr(data-price);
@@ -758,7 +758,10 @@ button {
     width: 100%;
     height: 40%;
     display: flex;
-    flex-flow: column; }
+    flex-flow: column;
+    background-color: var(--purple-100); }
+    body.dark .card-head {
+      background-color: var(--purple-700); }
     .card-head__title {
       width: 100%;
       height: 50%;
