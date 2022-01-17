@@ -1,3 +1,6 @@
+document.querySelector(".hero-image__img").style.filter = `invert(${
+	localStorage.getItem("theme") === "light" ? 0 : 1
+})`;
 const posts = [
 	{
 		title: "Data Scientist",
@@ -108,6 +111,19 @@ posts.forEach((post) => {
 	cardHeadDetails.appendChild(cardHeadDetailsCourses);
 	cardHead.appendChild(cardHeadTitle);
 	cardHead.appendChild(cardHeadDetails);
+	cardHead.style.backgroundColor = `var(--${post.color}-${
+		localStorage.getItem("theme") === "light" ? "100" : "700"
+	})`;
+	document.getElementById("light").addEventListener("click", (e) => {
+		e.preventDefault();
+		cardHead.style.backgroundColor = `var(--${post.color}-100)`;
+		document.querySelector(".hero-image__img").style.filter = "invert(0)";
+	});
+	document.getElementById("dark").addEventListener("click", (e) => {
+		e.preventDefault();
+		cardHead.style.backgroundColor = `var(--${post.color}-700)`;
+		document.querySelector(".hero-image__img").style.filter = "invert(1)";
+	});
 
 	const cardBody = document.createElement("div");
 	cardBody.className = "card-body";
